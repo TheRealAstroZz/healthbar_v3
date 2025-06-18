@@ -1,0 +1,123 @@
+.healthbar {
+  position: absolute;
+  width: 100px;
+  height: 18px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: white;
+  pointer-events: none;
+  z-index: 9999;
+  animation: popIn 0.2s ease-out;
+}
+
+.healthbar.fade-out {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+.healthbar .label {
+  position: absolute;
+  top: -14px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 0 0 3px black;
+}
+
+.healthbar .bar {
+  width: 100%;
+  height: 100%;
+  background: rgba(100, 100, 100, 0.3);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.healthbar .fill {
+  height: 100%;
+  width: 100%;
+  background-color: green;
+  transition: width 0.2s linear, background-color 0.3s ease;
+}
+
+.damage-float {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  position: absolute;
+  animation: floatUp 1s ease-out forwards;
+  z-index: 9999;
+  pointer-events: none;
+  text-shadow: 0 0 2px black;
+  transition: transform 0.2s, opacity 1s;
+}
+
+
+@keyframes floatUp {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(-50%, -80%) scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -120%) scale(1);
+    opacity: 0;
+  }
+}
+
+.damage-float.crit {
+  font-size: 24px;
+  color: #ff0000;
+  text-shadow: 0 0 6px red;
+  transform: scale(1.4);
+}
+
+
+.damage-float.icon {
+  font-size: 26px;
+  color: #ff3333;
+  animation: floatUp 1.2s ease-out forwards;
+}
+
+
+@keyframes popIn {
+  0% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.headshot-float {
+  position: absolute;
+  font-family: 'Orbitron', sans-serif;
+  color: #ff4444;
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px black;
+  animation: headshotFloat 1.2s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes headshotFloat {
+  0% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(1.1);
+  }
+}
